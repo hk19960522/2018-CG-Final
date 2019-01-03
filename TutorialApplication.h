@@ -24,6 +24,7 @@ This is an assignment of 3D Game Programming
 #define __BasicTutorial_00_h_
 
 #include "BaseApplication.h"
+#include "SPHSystem.h"
 
 class BasicTutorial_00 : public BaseApplication
 {
@@ -79,6 +80,8 @@ protected:
 	Ogre::Camera* mCameraArr[8];
 	Ogre::SceneManager* mSceneMgrArr[8];
 	OgreBites::SdkCameraMan* mCameraManArr[8];
+
+	SPHSystem *sph;
     //
     // Add your own stuff.
     //   
