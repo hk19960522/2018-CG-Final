@@ -1,14 +1,14 @@
 ////////////////////////////////////////
 //
-// 3D Game Programming
+// CG Final Programming
 // NCTU
-// Instructor: SAI-KEUNG WONG
+// Instructor: ªL¤åªN
 //
 // Date: 2018/09/20
 ////////////////////////////////////////
-// Student Name: ¶À«Ø³ó
-// Student ID: 0656651
-// Student Email: hk850522@gmail.com
+// Student Name: ¶À«Ø³ó¡B¶À«ä®¦
+// Student ID: 0656651 0756105
+// Student Email: hk850522@gmail.com item0932@gmail.com
 //
 ////////////////////////////////////////
 // You can delete or add some functions to do the assignment.
