@@ -75,6 +75,7 @@ void BasicTutorial_00::createViewport_01(void)
 
 void BasicTutorial_00::createScene_00(void) 
 {
+	DATA_READER::readData();
 	mSceneMgr = mSceneMgrArr[0];
 
 	// ambient light and shadow
@@ -94,6 +95,22 @@ void BasicTutorial_00::createScene_00(void)
 	//light02->setDiffuseColour(0.0, 1.0, 1.0); 
 	//light02->setSpecularColour(1.0, 0.0, 1.0); 
 	
+	Plane plane(Vector3::UNIT_Y, 0); 
+	MeshManager::getSingleton().createPlane(
+	"ground", 										
+	ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, 
+			plane, 
+			1000,1000, 	// width, height
+			20,20, 		// x- and y-segments
+			true, 		// normal
+			1, 			// num texture sets
+			5,5, 		// x- and y-tiles
+			Vector3::UNIT_Z	// upward vector
+		);
+	Entity *ent = mSceneMgr->createEntity("GroundEntity", "ground");
+	ent->setMaterialName("Examples/Rockwall");
+	mSceneMgr->getRootSceneNode()->createChildSceneNode()->attachObject(ent);
+
 	sph = new SPHSystem(mSceneMgr);
 }
 
@@ -110,20 +127,7 @@ void BasicTutorial_00::createScene_01(void)
 	light->setDiffuseColour(0.0, 0.0, 1.0);	
 	light->setSpecularColour(0.0,0.0, 1.0);
 	
-	Plane plane(Vector3::UNIT_Y, 0); 
-	MeshManager::getSingleton().createPlane(
-	"ground01", 										
-	ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, 
-			plane, 
-			1000,1000, 	// width, height
-			20,20, 		// x- and y-segments
-			true, 		// normal
-			1, 			// num texture sets
-			5,5, 		// x- and y-tiles
-			Vector3::UNIT_Z	// upward vector
-		);
-	Entity *ent = mSceneMgr->createEntity("GroundEntity", "ground");
-	mSceneMgr->getRootSceneNode()->createChildSceneNode()->attachObject(ent);
+	Entity *ent; 
 
 	ent = mSceneMgr->createEntity("Sphere", "sphere.mesh");
 	ent->setMaterialName("Examples/green");
@@ -184,7 +188,7 @@ bool BasicTutorial_00::frameStarted(const Ogre::FrameEvent& evt)
 	bool flg = Ogre::FrameListener::frameStarted(evt);
 
 	// Update Penguin
-	sph->Update();
+	sph->Update(evt);
 	
 	
     return flg;

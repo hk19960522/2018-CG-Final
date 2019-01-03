@@ -10,6 +10,7 @@
 #include <OgreRenderWindow.h>
 #include <vector>
 #include "Particle.h"
+#include "read_data.h"
 
 using namespace std;
 using namespace Ogre;
@@ -20,7 +21,7 @@ class SPHSystem
 public :
 	SPHSystem(SceneManager *mgr);
 
-	void Update();
+	void Update(const Ogre::FrameEvent& evt);
 
 private:
 	SceneManager *sceneMgr;
@@ -28,6 +29,8 @@ private:
 
 	void createParticle(float m, float r, Vector3 v); 
 
+	float time;
+	
 };
 
 

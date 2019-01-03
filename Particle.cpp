@@ -1,5 +1,4 @@
 #include "Particle.h"
-
 SPHParticle::SPHParticle(SceneNode *snode, float m, float r, Vector3 v)
 {
 	sceneNode = snode;
@@ -7,6 +6,7 @@ SPHParticle::SPHParticle(SceneNode *snode, float m, float r, Vector3 v)
 	radius = r;
 	velocity = v;
 }
+
 
 void SPHParticle::Update(float deltaT)
 {

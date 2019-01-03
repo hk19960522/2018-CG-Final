@@ -8,6 +8,7 @@
 #include <OgreViewport.h>
 #include <OgreSceneManager.h>
 #include <OgreRenderWindow.h>
+#include "BasicTools.h"
 
 using namespace Ogre;
 
