@@ -46,8 +46,8 @@ void BasicTutorial_00::createCamera_00(void)
 {
 	mSceneMgr = mSceneMgrArr[0];
 	mCamera = mCameraArr[0] = mSceneMgr->createCamera("PlayerCam");
-	mCamera->setPosition(Ogre::Vector3(120,300,600));
-	mCamera->lookAt(Ogre::Vector3(120,0,0));
+	mCamera->setPosition(Ogre::Vector3(20,10,20));
+	mCamera->lookAt(Ogre::Vector3(0,0,0));
 	mCamera->setNearClipDistance(5);
 	mCameraManArr[0] = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
 }
@@ -109,7 +109,9 @@ void BasicTutorial_00::createScene_00(void)
 		);
 	Entity *ent = mSceneMgr->createEntity("GroundEntity", "ground");
 	ent->setMaterialName("Examples/Rockwall");
-	mSceneMgr->getRootSceneNode()->createChildSceneNode()->attachObject(ent);
+	SceneNode * snode = mSceneMgr->getRootSceneNode()->createChildSceneNode();
+	snode->attachObject(ent);
+	snode->setPosition(0, -1, 0);
 
 	sph = new SPHSystem(mSceneMgr);
 }
@@ -163,7 +165,7 @@ bool BasicTutorial_00::keyPressed( const OIS::KeyEvent &arg )
     // Do not delete this line
 	bool flg = true;
     BaseApplication::keyPressed(arg);
-
+	//Sleep(5);
     return flg;
 }
 
@@ -189,7 +191,7 @@ bool BasicTutorial_00::frameStarted(const Ogre::FrameEvent& evt)
 
 	// Update Penguin
 	sph->Update(evt);
-	
+	Sleep(5);
 	
     return flg;
 }

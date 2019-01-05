@@ -27,7 +27,19 @@ private:
 	SceneManager *sceneMgr;
 	std::vector<SPHParticle *> particles;
 
+	// Parameter
+	float h; // kernel size
+	float m; // mass of particle
+	float poly6; // const of poly 6 kernel function
+	float spiky; // const of spiky kernel function
+	float pressureCoef; // K
+	float viscosityCoef;
+	float initDensity; // init density
+
 	void createParticle(float m, float r, Vector3 v); 
+
+	void UpdateDensity();
+	void UpdateAcceleration();
 
 	float time;
 	

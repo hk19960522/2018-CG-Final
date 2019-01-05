@@ -7,9 +7,12 @@
 using namespace std;
 
 float DATA_READER::mParticleScale = 0.01;
-float DATA_READER::mParticleRadius = 10;
+float DATA_READER::mParticleRadius = 0.1;
 std::string DATA_READER::mParticleMeshName = "sphere.mesh";
 float DATA_READER::mParticleMass = 10;
+float DATA_READER::mSmoothSize = 0.2f;
+float DATA_READER::mInitDensity = 20.0f;
+float DATA_READER::pressureCoef = 20.0f;
 
 DATA_READER::DATA_READER()
 {
@@ -47,6 +50,15 @@ void DATA_READER::readData()
 		if (key.compare("PARTICLE_MASS") == 0){
 			*fp >> mParticleMass;
 			cout << "----------------------------------particle mass = " << mParticleMass <<endl;
+		}
+		if (key.compare("SMOOTH_SIZE") == 0) {
+			*fp >> mSmoothSize;
+		}
+		if (key.compare("INIT_DENSITY") == 0) {
+			*fp >> mInitDensity;
+		}
+		if (key.compare("PRESSURE") == 0) {
+			*fp >> pressureCoef;
 		}
 	}
 
