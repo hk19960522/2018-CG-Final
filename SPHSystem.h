@@ -32,6 +32,7 @@ private:
 	float m; // mass of particle
 	float poly6; // const of poly 6 kernel function
 	float spiky; // const of spiky kernel function
+	float visKernel;
 	float pressureCoef; // K
 	float viscosityCoef;
 	float initDensity; // init density

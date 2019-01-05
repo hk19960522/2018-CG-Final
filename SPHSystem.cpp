@@ -16,6 +16,7 @@ SPHSystem::SPHSystem(SceneManager *mgr)
 	pressureCoef = DATA_READER::getPressureCoef();
 	initDensity = DATA_READER::getInitDensity();
 	viscosityCoef = 0.018;
+	visKernel = m * viscosityCoef * 45.0 / (PI * pow(h, 6.0f));
 
 }
 void SPHSystem::createParticle(float m, float r, Vector3 v){
@@ -97,8 +98,12 @@ void SPHSystem::UpdateAcceleration()
 			float ratio = (p0->pressure + p1->pressure) / ( 2 * p0->density * p1->density );
 			float diff = h - dist;
 			acc += ( spiky * ratio * diff * diff ) * direction;
+
+			float vis = viscosityCoef * diff;
+			Vector3 vdiff = p1->velocity - p0->velocity;
+			acc += (visKernel * vis / (p0->density * p1->density) ) * vdiff;
 		}
-		//std::cout << acc << " ";
+		std::cout << acc << " ";
 		// gravity
 
 		acc += Vector3(0, -9.8, 0);
