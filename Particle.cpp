@@ -1,4 +1,6 @@
 #include "Particle.h"
+#include "read_data.h"
+
 SPHParticle::SPHParticle(SceneNode *snode, float m, float r, Vector3 v, float d)
 {
 	sceneNode = snode;
@@ -16,14 +18,7 @@ void SPHParticle::Update(float deltaT)
 	UpdatePosition(deltaT);
 	
 	Vector3 p = sceneNode->getPosition();
-	if (p.y < 0.0) p.y = 0;
-	if (p.x < -2.0) p.x = -2;
-	if (p.x > 2.0) p.x = 2;
-	if (p.z < -2.0) p.z = -2;
-	if (p.z > 2.0) p.z = 2;
 	sceneNode->setPosition(p);
-	
-	
 	
 }
 

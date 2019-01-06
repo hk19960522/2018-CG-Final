@@ -12,6 +12,10 @@ protected:
 	static float mSmoothSize;
 	static float mInitDensity;
 	static float pressureCoef;
+	static float boundX;
+	static float boundZ;
+	static float boundDampingCoef;
+	static float viscosityCoef;
 public:
 	DATA_READER();
 	static void readData();
@@ -22,6 +26,10 @@ public:
 	static float getSmoothSize() { return mSmoothSize; };
 	static float getInitDensity() { return mInitDensity; };
 	static float getPressureCoef() { return pressureCoef; };
+	static float getBoundX() { return boundX; };
+	static float getBoundZ() { return boundZ; };
+	static float getBoundDampingCoef() { return boundDampingCoef; };
+	static float getViscosityCoef() { return viscosityCoef; };
 };
 
 #endif

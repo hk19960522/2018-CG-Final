@@ -165,6 +165,9 @@ bool BasicTutorial_00::keyPressed( const OIS::KeyEvent &arg )
     // Do not delete this line
 	bool flg = true;
     BaseApplication::keyPressed(arg);
+	if (arg.key == OIS::KC_SPACE) {
+		sph->BuildCubeParticle(10, 1.2);
+	}
 	//Sleep(5);
     return flg;
 }

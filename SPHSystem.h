@@ -22,6 +22,7 @@ public :
 	SPHSystem(SceneManager *mgr);
 
 	void Update(const Ogre::FrameEvent& evt);
+	void BuildCubeParticle(int size, float offset = 0.9);
 
 private:
 	SceneManager *sceneMgr;
@@ -33,14 +34,23 @@ private:
 	float poly6; // const of poly 6 kernel function
 	float spiky; // const of spiky kernel function
 	float visKernel;
+
 	float pressureCoef; // K
 	float viscosityCoef;
+	float boundDampingCoef;
+
 	float initDensity; // init density
 
+	float xMin, xMax, yMin, zMin, zMax;
+
+	
+	void SPHSystem::createParticle(Vector3 pos, float r);
 	void createParticle(float m, float r, Vector3 v); 
 
+	void BuildParticleNeighbor();
 	void UpdateDensity();
 	void UpdateAcceleration();
+	void UpdateBoundaryInfo(SPHParticle *p);
 
 	float time;
 	

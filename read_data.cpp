@@ -13,6 +13,10 @@ float DATA_READER::mParticleMass = 10;
 float DATA_READER::mSmoothSize = 0.2f;
 float DATA_READER::mInitDensity = 20.0f;
 float DATA_READER::pressureCoef = 20.0f;
+float DATA_READER::boundX = 10.0;
+float DATA_READER::boundZ = 10.0;
+float DATA_READER::boundDampingCoef = 0.6;
+float DATA_READER::viscosityCoef = 0.018;
 
 DATA_READER::DATA_READER()
 {
@@ -59,6 +63,15 @@ void DATA_READER::readData()
 		}
 		if (key.compare("PRESSURE") == 0) {
 			*fp >> pressureCoef;
+		}
+		if (key.compare("MAX_X") == 0) {
+			*fp >> boundX;
+		}
+		if (key.compare("MAX_Z") == 0) {
+			*fp >> boundZ;
+		}
+		if (key.compare("VISCOSITY") == 0) {
+			*fp >> viscosityCoef;
 		}
 	}
 

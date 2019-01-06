@@ -9,6 +9,7 @@
 #include <OgreSceneManager.h>
 #include <OgreRenderWindow.h>
 #include "BasicTools.h"
+#include <vector>
 
 using namespace Ogre;
 
@@ -24,6 +25,7 @@ public :
 
 	void SetDensity(float d) { density = d; };
 	void SetPressure(float p) { pressure = p; };
+	void SetPosition(Vector3 p) { sceneNode->setPosition(p); };
 
 	float density;
 	float pressure;
@@ -31,12 +33,15 @@ public :
 	Vector3 acceleration;
 	Vector3 halfVelocity;
 
+	std::vector<int> neighbor;
+
 private :
 	SceneNode *sceneNode;
 	float mass;
 	float radius;
 	
 	void UpdatePosition(float deltaT);
+	void BoundaryCheck();
 };
 
 #endif
