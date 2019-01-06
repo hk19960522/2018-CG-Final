@@ -80,14 +80,14 @@ void BasicTutorial_00::createScene_00(void)
 
 	// ambient light and shadow
 	//mSceneMgr->setAmbientLight(Ogre::ColourValue(1, 1, 1));
-	mSceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+	//mSceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 
 	//// add light
-	//Light *light01 = mSceneMgr->createLight("Light1"); 
-	//light01->setType(Light::LT_POINT); 
-	//light01->setPosition(Vector3(150, 250, 100));
-	//light01->setDiffuseColour(1.0, 1.0, 0.0); 
-	//light01->setSpecularColour(1.0, 0.0, 1.0); 
+	Light *light01 = mSceneMgr->createLight("Light1"); 
+	light01->setType(Light::LT_POINT); 
+	light01->setPosition(Vector3(10, 10, 10));
+	light01->setDiffuseColour(1.0, 1.0, 0.0); 
+	light01->setSpecularColour(1.0, 0.0, 1.0); 
 	//
 	//Light *light02 = mSceneMgr->createLight("Light2"); 
 	//light02->setType(Light::LT_POINT); 

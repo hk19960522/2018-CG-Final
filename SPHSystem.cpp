@@ -44,6 +44,7 @@ void SPHSystem::BuildCubeParticle(int size, float offset)
 
 void SPHSystem::createParticle(Vector3 pos, float r){
 	Entity *ent = sceneMgr->createEntity("sphere.mesh");
+	ent -> setMaterialName("Examples/blue");
 	SceneNode *snode = sceneMgr->getRootSceneNode()->createChildSceneNode();
 	snode->attachObject(ent);
 
