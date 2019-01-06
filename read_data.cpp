@@ -15,7 +15,7 @@ float DATA_READER::mInitDensity = 20.0f;
 float DATA_READER::pressureCoef = 20.0f;
 float DATA_READER::boundX = 10.0;
 float DATA_READER::boundZ = 10.0;
-float DATA_READER::boundDampingCoef = 0.6;
+float DATA_READER::boundDampingCoef = 0.01;
 float DATA_READER::viscosityCoef = 0.018;
 
 DATA_READER::DATA_READER()
