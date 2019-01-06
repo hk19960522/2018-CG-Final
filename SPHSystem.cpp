@@ -196,7 +196,7 @@ void SPHSystem::UpdateAcceleration()
 			float diff = h - dist;
 			acc += ( spiky * ratio * diff * diff ) * direction;
 
-			float vis = viscosityCoef * diff;
+			float vis = diff;
 			Vector3 vdiff = p1->velocity - p0->velocity;
 			acc += (visKernel * vis / (p0->density * p1->density) ) * vdiff;
 		}

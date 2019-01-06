@@ -73,6 +73,9 @@ void DATA_READER::readData()
 		if (key.compare("VISCOSITY") == 0) {
 			*fp >> viscosityCoef;
 		}
+		if (key.compare("DAMP_COEF") == 0) {
+			*fp >> boundDampingCoef;
+		}
 	}
 
 }
