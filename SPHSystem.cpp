@@ -75,7 +75,7 @@ void SPHSystem::Update(const Ogre::FrameEvent& evt)
 	UpdateDensity();
 	UpdateAcceleration();
 	for (int i=0;i<particles.size();++i) {
-		particles[i]->Update(0.005);
+		particles[i]->Update(0.01);
 		UpdateBoundaryInfo(particles[i]);
 	}
 	//system("PAUSE");

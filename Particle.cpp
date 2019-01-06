@@ -26,7 +26,7 @@ void SPHParticle::UpdatePosition(float deltaT)
 {
 	Vector3 nextVelo = velocity + acceleration * deltaT;
 	Vector3 p = sceneNode->getPosition();
-
+	//nextVelo *= 0.998;
 	p += nextVelo * deltaT;
 	halfVelocity  = (velocity + nextVelo) * 0.5;
 	velocity = nextVelo;
